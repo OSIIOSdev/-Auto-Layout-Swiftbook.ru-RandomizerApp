@@ -15,7 +15,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         guard let scene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: scene)
-        window?.rootViewController = RandomizerViewController()
+        
+        let navigationController = UINavigationController()
+        let randomizerViewController = RandomizerViewController()
+        let settingsViewController = SettingsViewController()
+        
+        navigationController.viewControllers = [settingsViewController, randomizerViewController]
+        
+        window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
         
     }
